@@ -1,5 +1,6 @@
 const readline = require("readline");
 const personalAnswer = require("./personal_modules/personalAnswer");
+const database = require('./personal_modules/database')
 
 let rl = readline.createInterface(process.stdin, process.stdout);
 console.log("Доброго времени суток.\n\nЯ 'Jason' - интерактивный хелпер разработанный на 'Node.js'\nВведите 'help' чтобы открыть список доступных вопросов\nСоздатель:'Kelmi'")
@@ -56,6 +57,10 @@ function newQuestion() {
                 '"Кто твой создатель?"\n',
                 '"Где расположен твой код?" && "Где можно посмотреть твой код?"'
                 )
+            newQuestion()
+        }
+        else if (answer === 'Что такое JavaScript?') {
+            database('SELECT answer FROM questions WHERE id = 1')
             newQuestion()
         }
         else {
