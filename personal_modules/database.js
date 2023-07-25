@@ -11,21 +11,30 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
     if (err) {
+        setTimeout(() => {
         console.error('При подключении к базе данных произошла ошибка', err);
+        }, 500)
     } 
     else {
-        console.log('Подключение прошло успешно');
+        setTimeout(() => {
+            console.log('Подключение к базе данных прошло успешно');
+        }, 500)
     }
 })
 
 connection.query(query, (err, results) => {
     if (err) {
-        console.error('Ошибка запроса', err);
+        setTimeout(() => {
+            console.error('Ошибка запроса', err);
+        }, 1000);
     }
     else {
-        console.log('Запрос выполнен', results);
+        setTimeout(() => {
+            console.log('Ответ', results);
+        }, 1000);
     }
 })
 
 connection.end();
+
 }
