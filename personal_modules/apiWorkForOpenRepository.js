@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const apiKey = '941f10fa3db04b13e90a469e7914d4c9';
+const apiKey = // Токен скрыт из соображений безопасности
 
 async function getWeatherForecast(answer) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${answer}&units=metric&appid=${apiKey}`
