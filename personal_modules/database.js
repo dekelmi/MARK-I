@@ -14,7 +14,7 @@ connection.connect((err) => {
         setTimeout(() => {
         console.error('При подключении к базе данных произошла ошибка', err);
         }, 500)
-    } 
+    }
     else {
         setTimeout(() => {
             console.log('Подключение к базе данных прошло успешно');
