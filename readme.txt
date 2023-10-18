@@ -1,3 +1,47 @@
+const mysql = require('mysql2');
+const chai = require('chai');
+const expect = chai.expect;
+
+// Тесты
+describe('MySQL Connection', () => {
+  it('should connect to MySQL database without errors', (done) => {
+    const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'ваш_пользователь',
+      password: 'ваш_пароль',
+      database: 'ваша_база_данных'
+    });
+
+    connection.connect((err) => {
+      if (err) {
+        done(err); // Если произошла ошибка подключения, передаем ее в тестовый фреймворк
+      } else {
+        done(); // Если подключение прошло успешно, тест успешен
+      }
+    });
+  });
+
+  it('should close MySQL connection without errors', (done) => {
+    const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'ваш_пользователь',
+      password: 'ваш_пароль',
+      database: 'ваша_база_данных'
+    });
+
+    connection.end((err) => {
+      if (err) {
+        done(err); // Если произошла ошибка закрытия соединения, передаем ее в тестовый фреймворк
+      } else {
+        done(); // Если соединение успешно закрыто, тест успешен
+      }
+    });
+  });
+});
+
+
+
+
 Документация MARK I
 
 
